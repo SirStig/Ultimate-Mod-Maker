@@ -16,7 +16,7 @@ namespace Ultimate_Mod_Maker
     public partial class Main : Form
     {
         //!!!!!Main Var for all the mods!!!!!
-        string mods = "var Ultimate Mod Maker Mod = {};\n(function () {\n\n//Ultimate Mod Maker\n})();";
+        string mods = "var Ultimate Mod Maker Mod = {};\n(function () {\n\n//Made_with_Ultimate_Mod_Maker\n})();";
         string modificationsList = "";
 
         public Main()
@@ -255,7 +255,7 @@ namespace Ultimate_Mod_Maker
         private void addTopicToMods(object sender, EventArgs e)
         {
             modificationsList = modificationsList + "\n" + "	" + gdtModNameString + ".addTopic = function () {\n" + "		" + "GDT.addTopics([ \n" + "		{\n" + "			" + "id: \"" + topicNameString + "\",\n" + "			" + "name: \"" + topicNameString + "\".localize(\"game topic\"),\n" + "			" + "genreWeightings: [" + actionV + ", " + adventureV + ", " + rpgV + ", " + simulationV + ", " + strategyV + ", " + casualV + "],\n" + "			" + "audienceWeightings: [" + youngV + ", " + everyoneV + ", " + matureV + "]\n" + "		}\n" + "		]);\n" + "	};";
-            string fullMod = "var " + gdtModNameString + "= {};\n(function (){\n\n//Made with Ultimate Mod Maker\n" + modificationsList + "\n})();";
+            string fullMod = "var " + gdtModNameString + "= {};\n(function (){\n\n//Made_with_Ultimate_Mod_Maker\n" + modificationsList + "\n})();";
             mods = fullMod;
             gdtCustomCodeBox.Text = mods;
         }
@@ -267,7 +267,7 @@ namespace Ultimate_Mod_Maker
         {
             gdtModNameString = gdtModNameBox.Text;
             gdtModName.Text = gdtModNameString;
-            string fullMod = "var " + gdtModNameString + "= {};\n(function (){\n\n//Made with Ultimate Mod Maker\n" + modificationsList + "\n})();";
+            string fullMod = "var " + gdtModNameString + "= {};\n(function (){\n\n//Made_with_Ultimate_Mod_Maker\n" + modificationsList + "\n})();";
             mods = fullMod;
             gdtCustomCodeBox.Text = mods;
         }
@@ -326,9 +326,15 @@ namespace Ultimate_Mod_Maker
             }
         }
 
+        //Strings that holds info
+        string infoStringVersion = "";
+        string infoStringAuthor = "";
+        string infoStringURL = "";
+        string infoStringDescription = "";
+
         private void finishedInfo(object sender, EventArgs e)
         {
-            string infoString = "{ \"id\" : \"" + gdtModNameString + "\",\"name\" : \"" + gdtModNameString + "\",\"version\":\"" + version.Text + "\",\"author\":\"" + author.Text + "\",\"url\":\"" + url.Text + "\",\"description\" : \"" + description.Text + "\",\"main\" : \"./" + gdtModNameString + ".js\",\"dependencies\" : {\"gdt-modAPI\":\"0.1.x\"}}";
+            string infoString = "{ \"id\" : \"" + gdtModNameString + "\",\"name\" : \"" + gdtModNameString + "\",//Name \"version\":\"" + version.Text + "\",//Version \"author\":\"" + author.Text + "\",//Author\"url\":\"" + url.Text + "\",//URL\"description\" : \"" + description.Text + "\",//Description\"main\" : \"./" + gdtModNameString + ".js\",\n\"dependencies\" : {\"gdt-modAPI\":\"0.1.x\"}}";
             FolderBrowserDialog gdtFinishTest = new FolderBrowserDialog();
             gdtFinishTest.Description = "Select a directory to save your mod";
             gdtFinishTest.ShowNewFolderButton = false;
@@ -350,14 +356,47 @@ namespace Ultimate_Mod_Maker
 
         }
 
-        private void label16_Click(object sender, EventArgs e)
+        private void loadClicked(object sender, EventArgs e)
         {
-
+            loadGDTMod.ShowDialog();
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private void openGDTMod(object sender, CancelEventArgs e)
         {
+            System.IO.Stream fileStream = loadGDTMod.OpenFile();
+            string modLoaction = Path.GetDirectoryName(loadGDTMod.FileName) + @"\package.json";
+            using (FileStream stream = File.Open(modLoaction, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    System.Console.WriteLine("------------------");
+                    System.Console.WriteLine(reader.ReadToEnd());
+                    System.Console.WriteLine("------------------");
+                    string infoPackage = reader.ReadToEnd();
+                    int v1 = infoPackage.IndexOf("\"version\":\"") + "\"version\":\"".Length;
+                    int v2 = infoPackage.IndexOf("\",//Version");
+                    string version = infoPackage.Substring(v1 , v2);
+                    Console.WriteLine("Version: " + version);
+                }
+            }
+            using (System.IO.StreamReader reader = new System.IO.StreamReader(fileStream))
+            {
+                // Read the first line from the file and write it the textbox.
+                System.Console.WriteLine("------------------");
+                System.Console.WriteLine(reader.ReadToEnd());
+                System.Console.WriteLine("------------------");
+                gdtModNameString = reader.ReadLine();
+                gdtModNameBox.Text = gdtModNameString;
+            }
+            fileStream.Close();
+        }
 
+        private void customCodeChanged(object sender, EventArgs e)
+        {
+            string cc = gdtCustomCodeBox.Text;
+            int v1 = cc.IndexOf("//Made_with_Ultimate_Mod_Maker") + "//Made_with_Ultimate_Mod_Maker".Length;
+            int v2 = cc.LastIndexOf("})();") - 1;
+            mods = cc.Substring(v1, v2);
         }
 
         /*private void saveDialogOK(object sender, CancelEventArgs e)
