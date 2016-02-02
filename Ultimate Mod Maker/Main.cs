@@ -15,17 +15,17 @@ namespace Ultimate_Mod_Maker
 
     public partial class Main : Form
     {
+        //!!!!!Main Var for all the mods!!!!!
+        string mods = "var Ultimate Mod Maker Mod = {};\n(function () {\n\n//Ultimate Mod Maker\n})();";
+        string modificationsList = "";
+
         public Main()
         {
             //Basic Init
             InitializeComponent();
+            gdtCustomCodeBox.Text = mods;
         }
 
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //Handles what happens when the app is loaded
-        }
 
         /*//Handles settings button being pushed
         private void settingsPushed(object sender, EventArgs e)
@@ -45,18 +45,20 @@ namespace Ultimate_Mod_Maker
         private void quitApp(object sender, EventArgs e)
         {
             Application.Exit();
-        }/*
+        }
 
         //Shows the GDT Menu
         private void gdtShowHide(object sender, EventArgs e)
         {
-            if (GDT.Visible.Equals(false))
+            if (GDTPanel.Visible.Equals(false))
             {
-                GDT.Show();
+                GDTPanel.Show();
             }
             else
             {
-                GDT.Hide();
+                GDTPanel.Hide();
+                modifications.Hide();
+                topicPanel.Hide();
             }
         }
 
@@ -66,15 +68,15 @@ namespace Ultimate_Mod_Maker
             if (topicPanel.Visible.Equals(false))
             {
                 topicPanel.Show();
+                modifications.Hide();
+                gdtCustomCodeBox.Hide();
+                info.Hide();
             }
             else
             {
                 topicPanel.Hide();
             }
         }
-
-        //!!!!!Main Var for all the mods!!!!!
-        string mods = "";
 
         //Creates the Variales for topic
         double actionV = 0.6;
@@ -129,11 +131,11 @@ namespace Ultimate_Mod_Maker
         private void rpgValueSet(object sender, EventArgs e)
         {
             // Checks to see what the rpg bar value equals then converts it for GDT modding
-            if (rpgBar.Value == 1)
+            if (RPGBar.Value == 1)
             {
                 rpgV = 0.3;
             }
-            else if (rpgBar.Value == 2)
+            else if (RPGBar.Value == 2)
             {
                 rpgV = 0.6;
             }
@@ -252,28 +254,108 @@ namespace Ultimate_Mod_Maker
         //Adds the topic to the mods string if the Add Topic button is pushed
         private void addTopicToMods(object sender, EventArgs e)
         {
-            mods = mods + "\n" + "	" + gdtModNameString + ".addTopic = function () {\n" + "		" + "GDT.addTopics([ \n" + "		{" + "			" + "id: \"" + topicNameString + "\",\n" + "			" + "name: \"" + topicNameString + "\".localize(\"game topic\"),\n" + "			" + "genreWeightings: [" + actionV + ", " + adventureV + ", " + rpgV + ", " + simulationV + ", " + strategyV + ", " + casualV + "]," + "			" + "audienceWeightings: [" + youngV + ", " + everyoneV + ", " + matureV + "]\n" + "		}\n" + "		]);\n" + "	};";
+            modificationsList = modificationsList + "\n" + "	" + gdtModNameString + ".addTopic = function () {\n" + "		" + "GDT.addTopics([ \n" + "		{\n" + "			" + "id: \"" + topicNameString + "\",\n" + "			" + "name: \"" + topicNameString + "\".localize(\"game topic\"),\n" + "			" + "genreWeightings: [" + actionV + ", " + adventureV + ", " + rpgV + ", " + simulationV + ", " + strategyV + ", " + casualV + "],\n" + "			" + "audienceWeightings: [" + youngV + ", " + everyoneV + ", " + matureV + "]\n" + "		}\n" + "		]);\n" + "	};";
+            string fullMod = "var " + gdtModNameString + "= {};\n(function (){\n\n//Made with Ultimate Mod Maker\n" + modificationsList + "\n})();";
+            mods = fullMod;
+            gdtCustomCodeBox.Text = mods;
         }
 
         //Handles the GDT mod naming proccess
 
-
-        string gdtModNameString = "Example";
-
+        string gdtModNameString = "Ultimate Mod Maker Mod";
         private void changeGDTModName(object sender, EventArgs e)
         {
-            gdtModNameString = gdtModName.Text;
+            gdtModNameString = gdtModNameBox.Text;
+            gdtModName.Text = gdtModNameString;
+            string fullMod = "var " + gdtModNameString + "= {};\n(function (){\n\n//Made with Ultimate Mod Maker\n" + modificationsList + "\n})();";
+            mods = fullMod;
+            gdtCustomCodeBox.Text = mods;
+        }
+
+        //Handles Custom Code being added
+        private void customCodeAdded(object sender, EventArgs e)
+        {
+            //Work in progress
         }
 
         //Generates the mod file
         //Currently only generates the topic and the basic folder and stuff.
 
+        private void modificationsClicked(object sender, EventArgs e)
+        {
+            if (modifications.Visible.Equals(false))
+            {
+                modifications.Show();
+                topicPanel.Hide();
+                gdtCustomCodeBox.Hide();
+                info.Hide();
+            }
+            else
+            {
+                modifications.Hide();
+            }
+        }
+
+        private void customCodeClicked(object sender, EventArgs e)
+        {
+            if (gdtCustomCodeBox.Visible.Equals(false))
+            {
+                gdtCustomCodeBox.Show();
+                modifications.Hide();
+                topicPanel.Hide();
+                info.Hide();
+            }
+            else
+            {
+                gdtCustomCodeBox.Hide();
+            }
+        }
+
         private void finishClicked(object sender, EventArgs e)
+        {
+            if (info.Visible.Equals(false))
+            {
+                info.Show();
+                modifications.Hide();
+                topicPanel.Hide();
+                gdtCustomCodeBox.Hide();
+            }
+            else
+            {
+                info.Hide();
+            }
+        }
+
+        private void finishedInfo(object sender, EventArgs e)
+        {
+            string infoString = "{ \"id\" : \"" + gdtModNameString + "\",\"name\" : \"" + gdtModNameString + "\",\"version\":\"" + version.Text + "\",\"author\":\"" + author.Text + "\",\"url\":\"" + url.Text + "\",\"description\" : \"" + description.Text + "\",\"main\" : \"./" + gdtModNameString + ".js\",\"dependencies\" : {\"gdt-modAPI\":\"0.1.x\"}}";
+            FolderBrowserDialog gdtFinishTest = new FolderBrowserDialog();
+            gdtFinishTest.Description = "Select a directory to save your mod";
+            gdtFinishTest.ShowNewFolderButton = false;
+            if (gdtFinishTest.ShowDialog() == DialogResult.OK)
+            {
+                string FolderName = gdtModNameString;
+                string folderPath = gdtFinishTest.SelectedPath + @"\" + gdtModNameString;
+                string codePath = gdtFinishTest.SelectedPath + @"\" + gdtModNameString + @"\" + gdtModNameString + ".js";
+                string infoPath = gdtFinishTest.SelectedPath + @"\" + gdtModNameString + @"\package.json";
+                Directory.CreateDirectory(folderPath);
+                File.WriteAllText(codePath, mods);
+                File.WriteAllText(infoPath, infoString);
+                info.Hide();
+            }
+        }
+
+        private void Main_Load(object sender, EventArgs e)
         {
 
         }
-        */
-        private void Main_Load(object sender, EventArgs e)
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -281,9 +363,9 @@ namespace Ultimate_Mod_Maker
         /*private void saveDialogOK(object sender, CancelEventArgs e)
         {
             string FolderName = gdtModNameString;
-            string folderPath = System.IO.Path.GetDirectoryName(saveGDTFile.FileName);
-            string modFile = "var." + gdtModNameString + " = {}; \n (function () { \n" + mods + "\n})();";
-            System.IO.Directory.CreateDirectory(folderPath);
+            string folderPath = gdtFinishTest.SelectedPath + @"\" + gdtModNameString;
+            Directory.CreateDirectory(folderPath);
+
         }*/
 
     }
