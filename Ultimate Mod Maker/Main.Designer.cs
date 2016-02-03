@@ -29,18 +29,28 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Topics");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Events");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Researches");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Platforms");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Topics");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Events");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Researches");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Platforms");
             this.GDT = new System.Windows.Forms.Button();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.SInc = new System.Windows.Forms.Button();
             this.MC = new System.Windows.Forms.Button();
-            this.quitMain = new System.Windows.Forms.Button();
             this.GDTPanel = new System.Windows.Forms.Panel();
+            this.dMod = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
             this.loadButton = new System.Windows.Forms.Button();
+            this.customCode = new System.Windows.Forms.Button();
+            this.gdtModName = new System.Windows.Forms.Label();
+            this.gdtModNameBox = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.backGDT = new System.Windows.Forms.Button();
+            this.modifications = new System.Windows.Forms.TreeView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.info = new System.Windows.Forms.Panel();
             this.finishInfo = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
@@ -52,8 +62,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.version = new System.Windows.Forms.TextBox();
             this.gdtCustomCodeBox = new System.Windows.Forms.RichTextBox();
-            this.customCode = new System.Windows.Forms.Button();
             this.topicPanel = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -79,18 +89,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.topicName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.modifications = new System.Windows.Forms.TreeView();
-            this.gdtModName = new System.Windows.Forms.Label();
-            this.gdtModNameBox = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.backGDT = new System.Windows.Forms.Button();
             this.loadGDTMod = new System.Windows.Forms.OpenFileDialog();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.warningMod = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.addPlatform = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.GDTPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.info.SuspendLayout();
             this.topicPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.actionBar)).BeginInit();
@@ -103,14 +109,19 @@
             // 
             // GDT
             // 
+            this.GDT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.GDT.AutoSize = true;
+            this.GDT.BackColor = System.Drawing.Color.Black;
             this.GDT.BackgroundImage = global::Ultimate_Mod_Maker.Properties.Resources.GDT;
-            this.GDT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.GDT.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.GDT.Location = new System.Drawing.Point(122, 411);
+            this.GDT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.GDT.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.GDT.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.GDT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GDT.Location = new System.Drawing.Point(10, 412);
             this.GDT.Name = "GDT";
             this.GDT.Size = new System.Drawing.Size(270, 129);
             this.GDT.TabIndex = 0;
-            this.GDT.UseVisualStyleBackColor = true;
+            this.GDT.UseVisualStyleBackColor = false;
             this.GDT.Click += new System.EventHandler(this.gdtShowHide);
             // 
             // pictureBox7
@@ -128,12 +139,15 @@
             // 
             this.webBrowser1.AllowNavigation = false;
             this.webBrowser1.AllowWebBrowserDrop = false;
+            this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.webBrowser1.IsWebBrowserContextMenuEnabled = false;
-            this.webBrowser1.Location = new System.Drawing.Point(122, 12);
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(874, 393);
+            this.webBrowser1.Size = new System.Drawing.Size(1008, 395);
             this.webBrowser1.TabIndex = 0;
             this.webBrowser1.TabStop = false;
             this.webBrowser1.Url = new System.Uri("http://ultimatemm.blogspot.com/", System.UriKind.Absolute);
@@ -141,54 +155,57 @@
             // 
             // SInc
             // 
+            this.SInc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SInc.AutoSize = true;
+            this.SInc.BackColor = System.Drawing.Color.Black;
             this.SInc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SInc.BackgroundImage")));
-            this.SInc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.SInc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SInc.Location = new System.Drawing.Point(425, 411);
+            this.SInc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.SInc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.SInc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.SInc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SInc.Location = new System.Drawing.Point(368, 411);
             this.SInc.Name = "SInc";
             this.SInc.Size = new System.Drawing.Size(270, 129);
             this.SInc.TabIndex = 2;
-            this.SInc.UseVisualStyleBackColor = true;
+            this.SInc.UseVisualStyleBackColor = false;
             // 
             // MC
             // 
+            this.MC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.MC.AutoSize = true;
+            this.MC.BackColor = System.Drawing.Color.Black;
             this.MC.BackgroundImage = global::Ultimate_Mod_Maker.Properties.Resources.MC;
-            this.MC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MC.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.MC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.MC.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.MC.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.MC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MC.Location = new System.Drawing.Point(726, 411);
             this.MC.Name = "MC";
             this.MC.Size = new System.Drawing.Size(270, 129);
             this.MC.TabIndex = 3;
-            this.MC.UseVisualStyleBackColor = true;
-            // 
-            // quitMain
-            // 
-            this.quitMain.BackColor = System.Drawing.Color.Black;
-            this.quitMain.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("quitMain.BackgroundImage")));
-            this.quitMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.quitMain.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.quitMain.Location = new System.Drawing.Point(0, 449);
-            this.quitMain.Name = "quitMain";
-            this.quitMain.Size = new System.Drawing.Size(116, 102);
-            this.quitMain.TabIndex = 4;
-            this.quitMain.UseVisualStyleBackColor = false;
-            this.quitMain.Click += new System.EventHandler(this.quitApp);
+            this.MC.UseVisualStyleBackColor = false;
             // 
             // GDTPanel
             // 
             this.GDTPanel.BackgroundImage = global::Ultimate_Mod_Maker.Properties.Resources.BackGround;
             this.GDTPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.GDTPanel.Controls.Add(this.addPlatform);
+            this.GDTPanel.Controls.Add(this.button5);
+            this.GDTPanel.Controls.Add(this.warningMod);
+            this.GDTPanel.Controls.Add(this.dMod);
             this.GDTPanel.Controls.Add(this.label19);
             this.GDTPanel.Controls.Add(this.loadButton);
             this.GDTPanel.Controls.Add(this.customCode);
-            this.GDTPanel.Controls.Add(this.topicPanel);
-            this.GDTPanel.Controls.Add(this.modifications);
             this.GDTPanel.Controls.Add(this.gdtModName);
             this.GDTPanel.Controls.Add(this.gdtModNameBox);
             this.GDTPanel.Controls.Add(this.button3);
             this.GDTPanel.Controls.Add(this.button2);
             this.GDTPanel.Controls.Add(this.button1);
             this.GDTPanel.Controls.Add(this.backGDT);
+            this.GDTPanel.Controls.Add(this.pictureBox1);
+            this.GDTPanel.Controls.Add(this.topicPanel);
+            this.GDTPanel.Controls.Add(this.modifications);
             this.GDTPanel.Controls.Add(this.info);
             this.GDTPanel.Controls.Add(this.gdtCustomCodeBox);
             this.GDTPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -197,6 +214,37 @@
             this.GDTPanel.Size = new System.Drawing.Size(1008, 551);
             this.GDTPanel.TabIndex = 5;
             this.GDTPanel.Visible = false;
+            // 
+            // dMod
+            // 
+            this.dMod.BackColor = System.Drawing.Color.Transparent;
+            this.dMod.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("dMod.BackgroundImage")));
+            this.dMod.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.dMod.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dMod.Enabled = false;
+            this.dMod.FlatAppearance.BorderSize = 0;
+            this.dMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dMod.ForeColor = System.Drawing.SystemColors.Control;
+            this.dMod.Location = new System.Drawing.Point(836, 499);
+            this.dMod.Name = "dMod";
+            this.dMod.Size = new System.Drawing.Size(160, 40);
+            this.dMod.TabIndex = 15;
+            this.dMod.Text = "Delete Modification";
+            this.dMod.UseVisualStyleBackColor = false;
+            this.dMod.Visible = false;
+            this.dMod.Click += new System.EventHandler(this.deleteModification);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label19.Location = new System.Drawing.Point(4, 5);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(62, 13);
+            this.label19.TabIndex = 13;
+            this.label19.Text = "Mod Name:";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // loadButton
             // 
@@ -215,10 +263,166 @@
             this.loadButton.TabIndex = 12;
             this.loadButton.Text = "Load";
             this.loadButton.UseVisualStyleBackColor = false;
+            this.loadButton.Visible = false;
             this.loadButton.Click += new System.EventHandler(this.loadClicked);
+            // 
+            // customCode
+            // 
+            this.customCode.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.customCode.BackColor = System.Drawing.Color.Transparent;
+            this.customCode.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("customCode.BackgroundImage")));
+            this.customCode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.customCode.FlatAppearance.BorderSize = 0;
+            this.customCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customCode.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.customCode.Location = new System.Drawing.Point(419, 51);
+            this.customCode.Name = "customCode";
+            this.customCode.Size = new System.Drawing.Size(207, 49);
+            this.customCode.TabIndex = 10;
+            this.customCode.Text = "Source Editor";
+            this.customCode.UseVisualStyleBackColor = false;
+            this.customCode.Click += new System.EventHandler(this.customCodeClicked);
+            // 
+            // gdtModName
+            // 
+            this.gdtModName.AutoSize = true;
+            this.gdtModName.BackColor = System.Drawing.Color.Transparent;
+            this.gdtModName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.gdtModName.Location = new System.Drawing.Point(64, 6);
+            this.gdtModName.Name = "gdtModName";
+            this.gdtModName.Size = new System.Drawing.Size(135, 13);
+            this.gdtModName.TabIndex = 6;
+            this.gdtModName.Text = "Ultimate_Mod_Maker_Mod";
+            this.gdtModName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // gdtModNameBox
+            // 
+            this.gdtModNameBox.Location = new System.Drawing.Point(7, 19);
+            this.gdtModNameBox.MaxLength = 30;
+            this.gdtModNameBox.Name = "gdtModNameBox";
+            this.gdtModNameBox.Size = new System.Drawing.Size(194, 20);
+            this.gdtModNameBox.TabIndex = 5;
+            this.gdtModNameBox.WordWrap = false;
+            this.gdtModNameBox.TextChanged += new System.EventHandler(this.changeGDTModName);
+            this.gdtModNameBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.spaceNotAllowed);
+            // 
+            // button3
+            // 
+            this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button3.Location = new System.Drawing.Point(3, 50);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(201, 49);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Add a Topic";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.topicPanelShowHide);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button2.Location = new System.Drawing.Point(602, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(207, 45);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Save";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.finishClicked);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(403, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(193, 45);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Modifications";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.modificationsClicked);
+            // 
+            // backGDT
+            // 
+            this.backGDT.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.backGDT.BackColor = System.Drawing.Color.Transparent;
+            this.backGDT.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backGDT.BackgroundImage")));
+            this.backGDT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.backGDT.FlatAppearance.BorderSize = 0;
+            this.backGDT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backGDT.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.backGDT.Location = new System.Drawing.Point(209, 2);
+            this.backGDT.Name = "backGDT";
+            this.backGDT.Size = new System.Drawing.Size(188, 42);
+            this.backGDT.TabIndex = 1;
+            this.backGDT.Text = "Back to Menu";
+            this.backGDT.UseVisualStyleBackColor = false;
+            this.backGDT.Click += new System.EventHandler(this.gdtShowHide);
+            // 
+            // modifications
+            // 
+            this.modifications.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.modifications.BackColor = System.Drawing.Color.Black;
+            this.modifications.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.modifications.ForeColor = System.Drawing.SystemColors.Info;
+            this.modifications.Location = new System.Drawing.Point(3, 105);
+            this.modifications.Name = "modifications";
+            treeNode9.Name = "Topics";
+            treeNode9.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode9.Text = "Topics";
+            treeNode9.ToolTipText = "The list of topics added";
+            treeNode10.Name = "Events";
+            treeNode10.Text = "Events";
+            treeNode11.Name = "Researches";
+            treeNode11.Text = "Researches";
+            treeNode12.Name = "Platforms";
+            treeNode12.Text = "Platforms";
+            this.modifications.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12});
+            this.modifications.Size = new System.Drawing.Size(1005, 384);
+            this.modifications.TabIndex = 7;
+            this.modifications.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(-208, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1421, 50);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
             // 
             // info
             // 
+            this.info.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.info.BackColor = System.Drawing.Color.Transparent;
             this.info.Controls.Add(this.finishInfo);
             this.info.Controls.Add(this.label18);
@@ -229,7 +433,7 @@
             this.info.Controls.Add(this.author);
             this.info.Controls.Add(this.label15);
             this.info.Controls.Add(this.version);
-            this.info.Location = new System.Drawing.Point(560, 51);
+            this.info.Location = new System.Drawing.Point(324, 105);
             this.info.Name = "info";
             this.info.Size = new System.Drawing.Size(461, 339);
             this.info.TabIndex = 11;
@@ -237,6 +441,7 @@
             // 
             // finishInfo
             // 
+            this.finishInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.finishInfo.BackColor = System.Drawing.Color.Transparent;
             this.finishInfo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("finishInfo.BackgroundImage")));
             this.finishInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -254,6 +459,9 @@
             // 
             // label18
             // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -265,6 +473,9 @@
             // 
             // description
             // 
+            this.description.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.description.Location = new System.Drawing.Point(98, 180);
             this.description.Name = "description";
             this.description.Size = new System.Drawing.Size(319, 142);
@@ -273,6 +484,9 @@
             // 
             // label17
             // 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -284,6 +498,9 @@
             // 
             // url
             // 
+            this.url.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.url.Location = new System.Drawing.Point(98, 122);
             this.url.Name = "url";
             this.url.Size = new System.Drawing.Size(319, 20);
@@ -292,6 +509,9 @@
             // 
             // label16
             // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -303,6 +523,9 @@
             // 
             // author
             // 
+            this.author.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.author.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.author.Location = new System.Drawing.Point(98, 77);
             this.author.Name = "author";
@@ -312,6 +535,9 @@
             // 
             // label15
             // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -323,6 +549,9 @@
             // 
             // version
             // 
+            this.version.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.version.Location = new System.Drawing.Point(98, 28);
             this.version.MaxLength = 5;
             this.version.Name = "version";
@@ -334,38 +563,24 @@
             // gdtCustomCodeBox
             // 
             this.gdtCustomCodeBox.AcceptsTab = true;
+            this.gdtCustomCodeBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gdtCustomCodeBox.BackColor = System.Drawing.SystemColors.InfoText;
             this.gdtCustomCodeBox.DetectUrls = false;
             this.gdtCustomCodeBox.ForeColor = System.Drawing.SystemColors.Window;
-            this.gdtCustomCodeBox.Location = new System.Drawing.Point(-12, 67);
+            this.gdtCustomCodeBox.Location = new System.Drawing.Point(0, 105);
             this.gdtCustomCodeBox.Name = "gdtCustomCodeBox";
-            this.gdtCustomCodeBox.Size = new System.Drawing.Size(931, 422);
+            this.gdtCustomCodeBox.Size = new System.Drawing.Size(1008, 446);
             this.gdtCustomCodeBox.TabIndex = 0;
             this.gdtCustomCodeBox.Text = "";
             this.gdtCustomCodeBox.Visible = false;
             this.gdtCustomCodeBox.TextChanged += new System.EventHandler(this.customCodeChanged);
             // 
-            // customCode
-            // 
-            this.customCode.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.customCode.BackColor = System.Drawing.Color.Transparent;
-            this.customCode.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("customCode.BackgroundImage")));
-            this.customCode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.customCode.FlatAppearance.BorderSize = 0;
-            this.customCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customCode.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.customCode.Location = new System.Drawing.Point(219, 50);
-            this.customCode.Name = "customCode";
-            this.customCode.Size = new System.Drawing.Size(207, 49);
-            this.customCode.TabIndex = 10;
-            this.customCode.Text = "Source Editor";
-            this.customCode.UseVisualStyleBackColor = false;
-            this.customCode.Click += new System.EventHandler(this.customCodeClicked);
-            // 
             // topicPanel
             // 
-            this.topicPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.topicPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.topicPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.topicPanel.BackColor = System.Drawing.Color.Transparent;
             this.topicPanel.Controls.Add(this.label20);
@@ -399,6 +614,18 @@
             this.topicPanel.Size = new System.Drawing.Size(1008, 443);
             this.topicPanel.TabIndex = 9;
             this.topicPanel.Visible = false;
+            // 
+            // label20
+            // 
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label20.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label20.Location = new System.Drawing.Point(206, 19);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(650, 65);
+            this.label20.TabIndex = 30;
+            this.label20.Text = resources.GetString("label20.Text");
             // 
             // button4
             // 
@@ -509,7 +736,8 @@
             // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -522,7 +750,8 @@
             // 
             // label10
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -535,7 +764,8 @@
             // 
             // label9
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -548,8 +778,8 @@
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -562,7 +792,8 @@
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -575,7 +806,8 @@
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -598,10 +830,11 @@
             this.label5.Size = new System.Drawing.Size(38, 20);
             this.label5.TabIndex = 11;
             this.label5.Text = "Bad";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -611,10 +844,12 @@
             this.label4.Size = new System.Drawing.Size(49, 20);
             this.label4.TabIndex = 10;
             this.label4.Text = "Good";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -624,10 +859,12 @@
             this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 9;
             this.label3.Text = "Amazing";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // actionBar
             // 
-            this.actionBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.actionBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.actionBar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.actionBar.LargeChange = 1;
             this.actionBar.Location = new System.Drawing.Point(265, 140);
@@ -642,7 +879,8 @@
             // 
             // adventureBar
             // 
-            this.adventureBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.adventureBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.adventureBar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.adventureBar.LargeChange = 1;
             this.adventureBar.Location = new System.Drawing.Point(379, 141);
@@ -657,8 +895,8 @@
             // 
             // RPGBar
             // 
-            this.RPGBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.RPGBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.RPGBar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.RPGBar.LargeChange = 1;
             this.RPGBar.Location = new System.Drawing.Point(516, 141);
@@ -673,7 +911,8 @@
             // 
             // simulationBar
             // 
-            this.simulationBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simulationBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.simulationBar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.simulationBar.LargeChange = 1;
             this.simulationBar.Location = new System.Drawing.Point(651, 140);
@@ -688,7 +927,8 @@
             // 
             // strategyBar
             // 
-            this.strategyBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.strategyBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.strategyBar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.strategyBar.LargeChange = 1;
             this.strategyBar.Location = new System.Drawing.Point(791, 140);
@@ -703,7 +943,8 @@
             // 
             // casualBar
             // 
-            this.casualBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.casualBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.casualBar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.casualBar.LargeChange = 1;
             this.casualBar.Location = new System.Drawing.Point(932, 140);
@@ -751,152 +992,50 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "New Topic:";
             // 
-            // modifications
-            // 
-            this.modifications.BackColor = System.Drawing.Color.Black;
-            this.modifications.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.modifications.ForeColor = System.Drawing.SystemColors.Info;
-            this.modifications.Location = new System.Drawing.Point(3, 105);
-            this.modifications.Name = "modifications";
-            treeNode5.Name = "Topics";
-            treeNode5.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode5.Text = "Topics";
-            treeNode5.ToolTipText = "The list of topics added";
-            treeNode6.Name = "Events";
-            treeNode6.Text = "Events";
-            treeNode7.Name = "Researches";
-            treeNode7.Text = "Researches";
-            treeNode8.Name = "Platforms";
-            treeNode8.Text = "Platforms";
-            this.modifications.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8});
-            this.modifications.Size = new System.Drawing.Size(993, 392);
-            this.modifications.TabIndex = 7;
-            this.modifications.Visible = false;
-            // 
-            // gdtModName
-            // 
-            this.gdtModName.AutoSize = true;
-            this.gdtModName.BackColor = System.Drawing.Color.Transparent;
-            this.gdtModName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.gdtModName.Location = new System.Drawing.Point(64, 9);
-            this.gdtModName.Name = "gdtModName";
-            this.gdtModName.Size = new System.Drawing.Size(126, 13);
-            this.gdtModName.TabIndex = 6;
-            this.gdtModName.Text = "Ultimate Mod Maker Mod";
-            this.gdtModName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // gdtModNameBox
-            // 
-            this.gdtModNameBox.Location = new System.Drawing.Point(7, 24);
-            this.gdtModNameBox.Name = "gdtModNameBox";
-            this.gdtModNameBox.Size = new System.Drawing.Size(174, 20);
-            this.gdtModNameBox.TabIndex = 5;
-            this.gdtModNameBox.TextChanged += new System.EventHandler(this.changeGDTModName);
-            // 
-            // button3
-            // 
-            this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(12, 50);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(201, 49);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Add a Topic";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.topicPanelShowHide);
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(602, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(207, 45);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Save";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.finishClicked);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(403, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(193, 45);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Modifications";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.modificationsClicked);
-            // 
-            // backGDT
-            // 
-            this.backGDT.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.backGDT.BackColor = System.Drawing.Color.Transparent;
-            this.backGDT.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backGDT.BackgroundImage")));
-            this.backGDT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.backGDT.FlatAppearance.BorderSize = 0;
-            this.backGDT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backGDT.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.backGDT.Location = new System.Drawing.Point(209, 2);
-            this.backGDT.Name = "backGDT";
-            this.backGDT.Size = new System.Drawing.Size(188, 42);
-            this.backGDT.TabIndex = 1;
-            this.backGDT.Text = "Back to Menu";
-            this.backGDT.UseVisualStyleBackColor = false;
-            this.backGDT.Click += new System.EventHandler(this.gdtShowHide);
-            // 
             // loadGDTMod
             // 
             this.loadGDTMod.AddExtension = false;
             this.loadGDTMod.Title = "Load a GDT Mod";
             this.loadGDTMod.FileOk += new System.ComponentModel.CancelEventHandler(this.openGDTMod);
             // 
-            // label19
+            // warningMod
             // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label19.Location = new System.Drawing.Point(4, 9);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(62, 13);
-            this.label19.TabIndex = 13;
-            this.label19.Text = "Mod Name:";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.warningMod.AutoSize = true;
+            this.warningMod.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.warningMod.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.warningMod.Location = new System.Drawing.Point(544, 512);
+            this.warningMod.Name = "warningMod";
+            this.warningMod.Size = new System.Drawing.Size(287, 13);
+            this.warningMod.TabIndex = 16;
+            this.warningMod.Text = "Modifications of any kind must be deleted manually for now!";
+            this.warningMod.Visible = false;
             // 
-            // label20
+            // button5
             // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.AutoSize = true;
-            this.label20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label20.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label20.Location = new System.Drawing.Point(206, 19);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(650, 65);
-            this.label20.TabIndex = 30;
-            this.label20.Text = resources.GetString("label20.Text");
+            this.button5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button5.Enabled = false;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button5.Location = new System.Drawing.Point(211, 51);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(201, 49);
+            this.button5.TabIndex = 17;
+            this.button5.Text = "Add a Platform";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.ContextMenuStripChanged += new System.EventHandler(this.addPlatformClicked);
+            // 
+            // addPlatform
+            // 
+            this.addPlatform.BackColor = System.Drawing.Color.Transparent;
+            this.addPlatform.Location = new System.Drawing.Point(0, 102);
+            this.addPlatform.Name = "addPlatform";
+            this.addPlatform.Size = new System.Drawing.Size(1008, 449);
+            this.addPlatform.TabIndex = 31;
+            this.addPlatform.Visible = false;
             // 
             // Main
             // 
@@ -908,7 +1047,6 @@
             this.Controls.Add(this.GDT);
             this.Controls.Add(this.SInc);
             this.Controls.Add(this.MC);
-            this.Controls.Add(this.quitMain);
             this.Controls.Add(this.pictureBox7);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -919,6 +1057,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.GDTPanel.ResumeLayout(false);
             this.GDTPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.info.ResumeLayout(false);
             this.info.PerformLayout();
             this.topicPanel.ResumeLayout(false);
@@ -930,6 +1069,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.strategyBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.casualBar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -940,7 +1080,6 @@
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Button SInc;
         private System.Windows.Forms.Button MC;
-        private System.Windows.Forms.Button quitMain;
         private System.Windows.Forms.Panel GDTPanel;
         private System.Windows.Forms.Label gdtModName;
         private System.Windows.Forms.TextBox gdtModNameBox;
@@ -991,6 +1130,12 @@
         private System.Windows.Forms.OpenFileDialog loadGDTMod;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.Button dMod;
+        private System.Windows.Forms.Label warningMod;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Panel addPlatform;
     }
 }
 

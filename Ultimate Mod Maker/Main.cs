@@ -16,8 +16,11 @@ namespace Ultimate_Mod_Maker
     public partial class Main : Form
     {
         //!!!!!Main Var for all the mods!!!!!
-        string mods = "var Ultimate Mod Maker Mod = {};\n(function () {\n\n//Made_with_Ultimate_Mod_Maker\n})();";
-        string modificationsList = "";
+        string modificationsList = "//Made_with_Ultimate_Mod_Maker\n\n";
+        string mods = "var Ultimate_Mod_Maker_Mod = {};\n(function () {\n" + "//Made_with_Ultimate_Mod_Maker\n\n" + "})();";
+        string topics = "";
+        string infoString = "";
+        string modificationsCreated = "";
 
         public Main()
         {
@@ -59,6 +62,8 @@ namespace Ultimate_Mod_Maker
                 GDTPanel.Hide();
                 modifications.Hide();
                 topicPanel.Hide();
+                dMod.Hide();
+                warningMod.Hide();
             }
         }
 
@@ -71,6 +76,8 @@ namespace Ultimate_Mod_Maker
                 modifications.Hide();
                 gdtCustomCodeBox.Hide();
                 info.Hide();
+                dMod.Hide();
+                warningMod.Hide();
             }
             else
             {
@@ -254,22 +261,36 @@ namespace Ultimate_Mod_Maker
         //Adds the topic to the mods string if the Add Topic button is pushed
         private void addTopicToMods(object sender, EventArgs e)
         {
-            modificationsList = modificationsList + "\n" + "	" + gdtModNameString + ".addTopic = function () {\n" + "		" + "GDT.addTopics([ \n" + "		{\n" + "			" + "id: \"" + topicNameString + "\",\n" + "			" + "name: \"" + topicNameString + "\".localize(\"game topic\"),\n" + "			" + "genreWeightings: [" + actionV + ", " + adventureV + ", " + rpgV + ", " + simulationV + ", " + strategyV + ", " + casualV + "],\n" + "			" + "audienceWeightings: [" + youngV + ", " + everyoneV + ", " + matureV + "]\n" + "		}\n" + "		]);\n" + "	};";
-            string fullMod = "var " + gdtModNameString + "= {};\n(function (){\n\n//Made_with_Ultimate_Mod_Maker\n" + modificationsList + "\n})();";
-            mods = fullMod;
-            gdtCustomCodeBox.Text = mods;
+            if (!modificationsCreated.Contains(topicNameString))
+            {
+                ModificationsCustomCode = true;
+                topics = topics + "//" + topicNameString + "		\n{\n" + "			" + "id: \"" + topicNameString + "\",\n" + "			" + "name: \"" + topicNameString + "\".localize(\"game topic\"),\n" + "			" + "genreWeightings: [" + actionV + ", " + adventureV + ", " + rpgV + ", " + simulationV + ", " + strategyV + ", " + casualV + "],\n" + "			" + "audienceWeightings: [" + youngV + ", " + everyoneV + ", " + matureV + "]\n" + "	}, //Ending" + topicNameString + " \n";
+                string fullMod = "var " + gdtModNameString + " = {};\n(function (){\n" + "	" + gdtModNameString + ".addTopic = function () {\n" + "		GDT.addTopics([ \n" + topics + "\n      ]);" + "\n	};" + "\n})();";
+                mods = fullMod;
+                gdtCustomCodeBox.Text = mods;
+                TreeNode newMod = new TreeNode(topicNameString);
+                modifications.Nodes[0].Nodes.Add(newMod);
+                modificationsCreated = modificationsCreated + "\n" + topicNameString;
+                ModificationsCustomCode = false;
+
+            } else
+            {
+                MessageBox.Show("Topic with that name already created!");
+            }
         }
 
         //Handles the GDT mod naming proccess
 
-        string gdtModNameString = "Ultimate Mod Maker Mod";
+        string gdtModNameString = "Ultimate_Mod_Maker_Mod";
         private void changeGDTModName(object sender, EventArgs e)
         {
+            ModificationsCustomCode = true;
             gdtModNameString = gdtModNameBox.Text;
             gdtModName.Text = gdtModNameString;
-            string fullMod = "var " + gdtModNameString + "= {};\n(function (){\n\n//Made_with_Ultimate_Mod_Maker\n" + modificationsList + "\n})();";
+            string fullMod = "var " + gdtModNameString + " = {};\n(function (){\n" + "	" + gdtModNameString + ".addTopic = function () {\n" + "		GDT.addTopics([ \n" + topics + "\n      ]);" + "\n	};" + "\n})();";
             mods = fullMod;
             gdtCustomCodeBox.Text = mods;
+            ModificationsCustomCode = false;
         }
 
         //Handles Custom Code being added
@@ -289,12 +310,39 @@ namespace Ultimate_Mod_Maker
                 topicPanel.Hide();
                 gdtCustomCodeBox.Hide();
                 info.Hide();
+                dMod.Show();
+                warningMod.Show();
             }
             else
             {
                 modifications.Hide();
+                dMod.Hide();
+                warningMod.Hide();
             }
         }
+        bool ModificationsCustomCode = false;
+
+        private void deleteModification(object sender, EventArgs e)
+        {
+            ModificationsCustomCode = true;
+            string cc = gdtCustomCodeBox.Text;
+            string modification = modifications.SelectedNode.Name;
+            modifications.Nodes.Remove(modifications.SelectedNode);
+
+            int v1 = cc.IndexOf("//" + modification);
+            int v2 = cc.IndexOf("//Ending" + modification) + ("//Ending" + modification).Length;
+
+            gdtCustomCodeBox.SelectionStart = v1;
+            gdtCustomCodeBox.SelectionLength = v2 - v1;
+            gdtCustomCodeBox.Cut();
+            ModificationsCustomCode = false;
+        }
+
+        private void spaceNotAllowed(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = (e.KeyChar == (char)Keys.Space);
+        }
+
 
         private void customCodeClicked(object sender, EventArgs e)
         {
@@ -304,6 +352,8 @@ namespace Ultimate_Mod_Maker
                 modifications.Hide();
                 topicPanel.Hide();
                 info.Hide();
+                dMod.Hide();
+                warningMod.Hide();
             }
             else
             {
@@ -319,6 +369,8 @@ namespace Ultimate_Mod_Maker
                 modifications.Hide();
                 topicPanel.Hide();
                 gdtCustomCodeBox.Hide();
+                dMod.Hide();
+                warningMod.Show();
             }
             else
             {
@@ -326,15 +378,10 @@ namespace Ultimate_Mod_Maker
             }
         }
 
-        //Strings that holds info
-        string infoStringVersion = "";
-        string infoStringAuthor = "";
-        string infoStringURL = "";
-        string infoStringDescription = "";
-
         private void finishedInfo(object sender, EventArgs e)
         {
-            string infoString = "{ \"id\" : \"" + gdtModNameString + "\",\"name\" : \"" + gdtModNameString + "\",//Name \"version\":\"" + version.Text + "\",//Version \"author\":\"" + author.Text + "\",//Author\"url\":\"" + url.Text + "\",//URL\"description\" : \"" + description.Text + "\",//Description\"main\" : \"./" + gdtModNameString + ".js\",\n\"dependencies\" : {\"gdt-modAPI\":\"0.1.x\"}}";
+            infoString = "{ \r\n 	\"id\" : \"" + gdtModNameString + "\", \r\n	\"name\" : \"" + gdtModNameString + "\", \r\n	\"version\":\"" + version.Text + "\", \r\n	\"author\":\"" + author.Text + "\", \r\n	\"url\":\"" + url.Text + "\", \r\n	\"description\" : \"" + description.Text + "\", \r\n	\"main\" : \"./properties.js\", \r\n	\"dependencies\" : {\"gdt-modAPI\":\"0.1.x\"} \r\n}";
+            string runString = "var " + gdtModNameString + " = {};\n\n" + "(function() {\n" + "		" + gdtModNameString + ".path = GDT.getRelativePath();\n" + "var ready = function () {\n" + gdtModNameString + ".addTopic();" + "\n};\nvar error = function () {\n};\nGDT.loadJs([" + gdtModNameString + ".path + " + "'/" + gdtModNameString + ".js'], ready, error);\n\n})();";
             FolderBrowserDialog gdtFinishTest = new FolderBrowserDialog();
             gdtFinishTest.Description = "Select a directory to save your mod";
             gdtFinishTest.ShowNewFolderButton = false;
@@ -344,9 +391,11 @@ namespace Ultimate_Mod_Maker
                 string folderPath = gdtFinishTest.SelectedPath + @"\" + gdtModNameString;
                 string codePath = gdtFinishTest.SelectedPath + @"\" + gdtModNameString + @"\" + gdtModNameString + ".js";
                 string infoPath = gdtFinishTest.SelectedPath + @"\" + gdtModNameString + @"\package.json";
+                string runPath = gdtFinishTest.SelectedPath + @"\" + gdtModNameString + @"\properties.js";
                 Directory.CreateDirectory(folderPath);
                 File.WriteAllText(codePath, mods);
                 File.WriteAllText(infoPath, infoString);
+                File.WriteAllText(runPath, runString);
                 info.Hide();
             }
         }
@@ -393,10 +442,16 @@ namespace Ultimate_Mod_Maker
 
         private void customCodeChanged(object sender, EventArgs e)
         {
-            string cc = gdtCustomCodeBox.Text;
-            int v1 = cc.IndexOf("//Made_with_Ultimate_Mod_Maker") + "//Made_with_Ultimate_Mod_Maker".Length;
-            int v2 = cc.LastIndexOf("})();") - 1;
-            mods = cc.Substring(v1, v2);
+            if(ModificationsCustomCode == false)
+            {
+                string cc = gdtCustomCodeBox.Text;
+                int v1 = cc.IndexOf("//Made_with_Ultimate_Mod_Maker");
+                int v2 = cc.LastIndexOf("})();");
+                modificationsList = cc.Substring(v1, v2 - v1);
+            } else
+            {
+
+            }
         }
 
         /*private void saveDialogOK(object sender, CancelEventArgs e)
@@ -406,6 +461,17 @@ namespace Ultimate_Mod_Maker
             Directory.CreateDirectory(folderPath);
 
         }*/
+
+        private void addPlatformClicked(Object sender, EventArgs e)
+        {
+            if(addPlatform.Visible.Equals(false))
+            {
+                addPlatform.Show();
+            } else
+            {
+                addPlatform.Hide();
+            }
+        }
 
     }
 
