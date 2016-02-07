@@ -118,11 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="0.9.1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\0.9.1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BackGround" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BackGround.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="backOfText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backOfText.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="code" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\code.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="export" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\export.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GDT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GDT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,13 +142,43 @@
   <data name="Gear" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="KXJzdk5_6878786_lrg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KXJzdk5_6878786_lrg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lh1uC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Lh1uC.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="load" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\load.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="maxresdefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maxresdefault.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MC" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minecraft_shaders_sunset172_sonic_ethers_unbelievable_shaders_and_glsl_shaders_mod_neojp64v" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minecraft-shaders-sunset172-sonic-ethers-unbelievable-shaders-and-glsl-shaders-mod-neojp64v.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Poster2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Poster2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Screen13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Screen13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="screen66" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\screen66.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="topic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\topic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="UltimateMM" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UltimateMM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UltimateMM1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UltimateMM1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_35ScreenN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\35ScreenN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_635527313118483321" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\635527313118483321.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
